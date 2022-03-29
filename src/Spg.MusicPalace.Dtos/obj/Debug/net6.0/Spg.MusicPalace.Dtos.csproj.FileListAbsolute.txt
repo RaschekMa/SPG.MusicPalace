@@ -1,0 +1,12 @@
+D:\VS\MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Dtos\bin\Debug\net6.0\Spg.MusicPalace.Dtos.deps.json
+D:\VS\MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Dtos\bin\Debug\net6.0\Spg.MusicPalace.Dtos.dll
+D:\VS\MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Dtos\bin\Debug\net6.0\Spg.MusicPalace.Dtos.pdb
+D:\VS\MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Dtos\obj\Debug\net6.0\Spg.MusicPalace.Dtos.csproj.AssemblyReference.cache
+D:\VS\MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Dtos\obj\Debug\net6.0\Spg.MusicPalace.Dtos.GeneratedMSBuildEditorConfig.editorconfig
+D:\VS\MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Dtos\obj\Debug\net6.0\Spg.MusicPalace.Dtos.AssemblyInfoInputs.cache
+D:\VS\MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Dtos\obj\Debug\net6.0\Spg.MusicPalace.Dtos.AssemblyInfo.cs
+D:\VS\MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Dtos\obj\Debug\net6.0\Spg.MusicPalace.Dtos.csproj.CoreCompileInputs.cache
+D:\VS\MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Dtos\obj\Debug\net6.0\Spg.MusicPalace.Dtos.dll
+D:\VS\MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Dtos\obj\Debug\net6.0\refint\Spg.MusicPalace.Dtos.dll
+D:\VS\MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Dtos\obj\Debug\net6.0\Spg.MusicPalace.Dtos.pdb
+D:\VS\MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Dtos\obj\Debug\net6.0\ref\Spg.MusicPalace.Dtos.dll

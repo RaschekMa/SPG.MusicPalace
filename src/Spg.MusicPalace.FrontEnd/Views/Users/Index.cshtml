@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Spg.MusicPalace.Domain.Model.User>
+
+<h3>Liste aller User</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>E-Mail</th>
+            <th>Guid</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Spg.MusicPalace.Domain.Model.User item in @Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.EMail</td>
+                <td>@item.Guid</td>
+            </tr>
+        }
+    </tbody>
+</table>
