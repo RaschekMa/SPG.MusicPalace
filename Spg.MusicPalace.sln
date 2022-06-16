@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spg.MusicPalace.Dtos", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPG.MusicPalace.Application.Test", "src\SPG.MusicPalace.Application.Test\SPG.MusicPalace.Application.Test.csproj", "{50D9168D-18D2-416F-A521-4529E8A6AC41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPG.MusicPalace.Repository", "src\SPG.MusicPalace.Repository\SPG.MusicPalace.Repository.csproj", "{9BD49334-9CC4-406A-9FCC-3807FE9F5BAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{50D9168D-18D2-416F-A521-4529E8A6AC41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50D9168D-18D2-416F-A521-4529E8A6AC41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50D9168D-18D2-416F-A521-4529E8A6AC41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BD49334-9CC4-406A-9FCC-3807FE9F5BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BD49334-9CC4-406A-9FCC-3807FE9F5BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BD49334-9CC4-406A-9FCC-3807FE9F5BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BD49334-9CC4-406A-9FCC-3807FE9F5BAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

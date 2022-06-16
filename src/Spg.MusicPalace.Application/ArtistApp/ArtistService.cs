@@ -1,4 +1,5 @@
 ﻿using Spg.MusicPalace.Domain.Model;
+using Spg.MusicPalace.Dtos;
 using Spg.MusicPalace.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,14 @@ namespace Spg.MusicPalace.Application.ArtistApp
         {
             _dbContext = dbContext;
         }
-        public IEnumerable<Artist> ListAllArtists()
+        public IEnumerable<Artist> ListAll()
         {
             return _dbContext.Artists.ToList();
+        }
+
+        public bool Create(NewArtistDto dto)
+        {
+            return false;
         }
     }
 }

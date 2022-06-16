@@ -20,4 +20,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Spg.MusicPalace.Application\Spg.MusicPalace.Application.csproj" />
+    <ProjectReference Include="..\Spg.MusicPalace.Domain\Spg.MusicPalace.Domain.csproj" />
+    <ProjectReference Include="..\Spg.MusicPalace.Dtos\Spg.MusicPalace.Dtos.csproj" />
+  </ItemGroup>
+
 </Project>
