@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d7BZRNmosCDNdF6AAGi/eZcRl6Y/Fi26+TclAhOGT5l7p7+QbdDwgfzs9k5/b8Ezeo8Jr8DyMHdZT6FhJ3X6Jg==",
+  "dgSpecHash": "Rv86NvhsUsoLSHW4eI8Q55Qn+8+cFHDypuP9LO8zd+xqMYdb4IsedO9le9VNZUAGicrjoP4jCZITER+qi2H06g==",
   "success": true,
-  "projectFilePath": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Infrastructure\\Spg.MusicPalace.Infrastructure.csproj",
+  "projectFilePath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Infrastructure\\Spg.MusicPalace.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Envy\\.nuget\\packages\\bogus\\34.0.1\\bogus.34.0.1.nupkg.sha512",
     "C:\\Users\\Envy\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

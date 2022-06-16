@@ -1176,11 +1176,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.FrontEnd\\Spg.MusicPalace.FrontEnd.csproj",
+      "projectUniqueName": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.FrontEnd\\Spg.MusicPalace.FrontEnd.csproj",
       "projectName": "Spg.MusicPalace.FrontEnd",
-      "projectPath": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.FrontEnd\\Spg.MusicPalace.FrontEnd.csproj",
+      "projectPath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.FrontEnd\\Spg.MusicPalace.FrontEnd.csproj",
       "packagesPath": "C:\\Users\\Envy\\.nuget\\packages\\",
-      "outputPath": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.FrontEnd\\obj\\",
+      "outputPath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.FrontEnd\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1201,11 +1201,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Application\\Spg.MusicPalace.Application.csproj": {
-              "projectPath": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Application\\Spg.MusicPalace.Application.csproj"
+            "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Application\\Spg.MusicPalace.Application.csproj": {
+              "projectPath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Application\\Spg.MusicPalace.Application.csproj"
             },
-            "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Dtos\\Spg.MusicPalace.Dtos.csproj": {
-              "projectPath": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Dtos\\Spg.MusicPalace.Dtos.csproj"
+            "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Dtos\\Spg.MusicPalace.Dtos.csproj": {
+              "projectPath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Dtos\\Spg.MusicPalace.Dtos.csproj"
             }
           }
         }

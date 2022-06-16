@@ -7036,11 +7036,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Infrastructure.Test\\Spg.MusicPalace.Infrastructure.Test.csproj",
+      "projectUniqueName": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Infrastructure.Test\\Spg.MusicPalace.Infrastructure.Test.csproj",
       "projectName": "Spg.MusicPalace.Infrastructure.Test",
-      "projectPath": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Infrastructure.Test\\Spg.MusicPalace.Infrastructure.Test.csproj",
+      "projectPath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Infrastructure.Test\\Spg.MusicPalace.Infrastructure.Test.csproj",
       "packagesPath": "C:\\Users\\Envy\\.nuget\\packages\\",
-      "outputPath": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Infrastructure.Test\\obj\\",
+      "outputPath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Infrastructure.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -7061,8 +7061,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Infrastructure\\Spg.MusicPalace.Infrastructure.csproj": {
-              "projectPath": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Infrastructure\\Spg.MusicPalace.Infrastructure.csproj"
+            "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Infrastructure\\Spg.MusicPalace.Infrastructure.csproj": {
+              "projectPath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Infrastructure\\Spg.MusicPalace.Infrastructure.csproj"
             }
           }
         }

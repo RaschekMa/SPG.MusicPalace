@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OTB7VIN2+0Qj6bg3lg/I7ATt/h19r/3xj5xWG6OUsGg1bQunjRteaaQrKOP9sMRE+64wGpE+uddHJmnXbnLBWA==",
+  "dgSpecHash": "3f/TygsXmkkEvdi7nJYljKtOqMsDrmVMsi47SL/m61qEI2VxqObkRywy75N5hUgk6fQtPbzELhkPQXoJkplQQg==",
   "success": true,
-  "projectFilePath": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Application\\Spg.MusicPalace.Application.csproj",
+  "projectFilePath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Application\\Spg.MusicPalace.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Envy\\.nuget\\packages\\bogus\\34.0.1\\bogus.34.0.1.nupkg.sha512",
     "C:\\Users\\Envy\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.1\\microsoft.data.sqlite.core.6.0.1.nupkg.sha512",

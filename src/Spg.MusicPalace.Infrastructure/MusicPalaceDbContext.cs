@@ -44,7 +44,7 @@ namespace Spg.MusicPalace.Infrastructure
             //    .HasMany(c => c.Artists);  
         }
 
-        public void AddData()
+        public void AddDataToDatabaseTest()
         {
             List<User> _users = new List<User> { new("User123", "Password123"), new("User1234", "Password1234") };
 

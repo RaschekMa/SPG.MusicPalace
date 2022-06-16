@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CpaHNZIoJAWhKMF2/os/DIPjv/eRETsYNFlj5Qkj0S0dfVS65l3XUa6wCRpev+2URfL6DkA3pAJnBLkDCwCt4g==",
+  "dgSpecHash": "XoF2E8C4QKuE9Bbuk91krxKfRJVYGVq904ruan8Ewksf06aOh8ciY4mULaqyAREAgGEhBIPiU8M4Z0xU6AGnmQ==",
   "success": true,
-  "projectFilePath": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Domain\\Spg.MusicPalace.Domain.csproj",
+  "projectFilePath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Domain\\Spg.MusicPalace.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

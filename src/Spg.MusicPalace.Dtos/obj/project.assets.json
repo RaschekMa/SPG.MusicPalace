@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Dtos\\Spg.MusicPalace.Dtos.csproj",
+      "projectUniqueName": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Dtos\\Spg.MusicPalace.Dtos.csproj",
       "projectName": "Spg.MusicPalace.Dtos",
-      "projectPath": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Dtos\\Spg.MusicPalace.Dtos.csproj",
+      "projectPath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Dtos\\Spg.MusicPalace.Dtos.csproj",
       "packagesPath": "C:\\Users\\Envy\\.nuget\\packages\\",
-      "outputPath": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Dtos\\obj\\",
+      "outputPath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Dtos\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

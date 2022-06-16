@@ -15,7 +15,7 @@ namespace Spg.MusicPalace.Infrastructure.Test
             var db = new MusicPalaceDbContext(options);
             db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
-            db.AddData();            
+            db.AddDataToDatabaseTest();            
 
             Assert.True(true);
         }

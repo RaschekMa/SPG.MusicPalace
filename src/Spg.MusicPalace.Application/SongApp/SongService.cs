@@ -9,24 +9,24 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spg.MusicPalace.Application
+namespace Spg.MusicPalace.Application.SongApp
 {
-    public class MediaService
+    public class SongService
     {
         private readonly MusicPalaceDbContext _dbContext;
 
-        public MediaService(MusicPalaceDbContext dbContext)
+        public SongService(MusicPalaceDbContext dbContext)
         {
             _dbContext = dbContext;
-        }        
+        }
 
         public IQueryable<SongDto> ListAllSongs(
             Expression<Func<Song, bool>>? filterPredicate,
             Func<IQueryable<Song>, IOrderedQueryable<Song>>? sortOrderExpression)
         {
             IQueryable<Song> query = _dbContext.Songs
-                .Include(s => s.Album) 
-                .ThenInclude(s => s.Artist); 
+                .Include(s => s.Album)
+                .ThenInclude(s => s.Artist);
 
             if (filterPredicate is not null)
             {
@@ -44,20 +44,10 @@ namespace Spg.MusicPalace.Application
                 AlbumName = s.Album.Name,
                 ArtistName = s.Artist.Name
             });
-            
+
             var result2 = from s in _dbContext.Songs where s.Name.StartsWith("A") select s;
 
             return result;
-        }
-
-        public IEnumerable<Artist> ListAllArtists()
-        {
-            return _dbContext.Artists.ToList();
-        }
-
-        public IEnumerable<Album> ListAllAlbums()
-        {
-            return _dbContext.Albums.Include(s => s.Artist).ToList();
         }
     }
 }

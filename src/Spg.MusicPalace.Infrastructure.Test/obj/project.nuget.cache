@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YOHuX81jIeEc8m0LUHAwsSOxQjQs0p/MrhW4I0SyTAX8gGM5n7YvEJoU0Yz/5iByfzM4T6RDMJE6y67qGYk8vQ==",
+  "dgSpecHash": "i1wc5SJrQHLWS287DBXEvVifcwqPVuNVvC8CzvAdEvJfbWT75llIn1NClog3izLQ0DpfA/6HbfnKq17seh81dg==",
   "success": true,
-  "projectFilePath": "D:\\VS\\MusicPalace\\Spg.MusicPalace\\src\\Spg.MusicPalace.Infrastructure.Test\\Spg.MusicPalace.Infrastructure.Test.csproj",
+  "projectFilePath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Infrastructure.Test\\Spg.MusicPalace.Infrastructure.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Envy\\.nuget\\packages\\bogus\\34.0.1\\bogus.34.0.1.nupkg.sha512",
     "C:\\Users\\Envy\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
