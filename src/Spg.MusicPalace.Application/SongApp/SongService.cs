@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Spg.MusicPalace.Domain.Exceptions;
 using Spg.MusicPalace.Domain.Model;
 using Spg.MusicPalace.Dtos;
 using Spg.MusicPalace.Infrastructure;
+using SPG.MusicPalace.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,43 +13,82 @@ using System.Threading.Tasks;
 
 namespace Spg.MusicPalace.Application.SongApp
 {
-    public class SongService
+    public class SongService : ISongService
     {
-        private readonly MusicPalaceDbContext _dbContext;
+        private readonly IRepositoryBase<Song> _songRepository;
+        private readonly IRepositoryBase<Artist> _artistRepository;
+        private readonly IRepositoryBase<Album> _albumRepository;
 
-        public SongService(MusicPalaceDbContext dbContext)
+        public List<Expression<Func<Song, bool>>> FilterExpressions { get; set; } = new();
+        public Func<IQueryable<Song>, IOrderedQueryable<Song>>? SortOrderExpression { get; set; }
+        public Func<IQueryable<SongDto>, PagenatedList<SongDto>> PagingExpression { get; set; }
+
+        public SongService(IRepositoryBase<Song> songRepository, IRepositoryBase<Artist> artistRepository, IRepositoryBase<Album> albumRepository)
         {
-            _dbContext = dbContext;
+            _songRepository = songRepository;
+            _artistRepository = artistRepository;
+            _albumRepository = albumRepository;
         }
 
-        public IQueryable<SongDto> ListAllSongs(
-            Expression<Func<Song, bool>>? filterPredicate,
-            Func<IQueryable<Song>, IOrderedQueryable<Song>>? sortOrderExpression)
+        public PagenatedList<SongDto> ListAll()
         {
-            IQueryable<Song> query = _dbContext.Songs
-                .Include(s => s.Album)
-                .ThenInclude(s => s.Artist);
+            IQueryable<Song> query = _songRepository.GetAll();
 
-            if (filterPredicate is not null)
+            foreach (Expression<Func<Song, bool>> filter in FilterExpressions)
             {
-                query = query.Where(filterPredicate);
+                if (filter is not null)
+                {
+                    query = query.Where(filter);
+                }
             }
 
-            if (sortOrderExpression is not null)
+            if (SortOrderExpression is not null)
             {
-                query = sortOrderExpression(query);
+                query = SortOrderExpression(query);
             }
 
-            IQueryable<SongDto> result = query.Select(s => new SongDto()
+            IQueryable<SongDto> model = query.Select(s => new SongDto()
             {
-                Name = s.Name,
-                AlbumName = s.Album.Name,
-                ArtistName = s.Artist.Name
+                Title = s.Title
             });
 
-            var result2 = from s in _dbContext.Songs where s.Name.StartsWith("A") select s;
+            if (PagingExpression is not null)
+            {
+                return PagingExpression(model);
+            }
+            return PagenatedList<SongDto>.CreateWithoutPaging(model);
+        }
 
-            return result;
+        public bool Create(NewSongDto dto)
+        {
+            Artist existingArtist = _artistRepository.GetSingle(s => s.Guid == dto.Artist, string.Empty)
+                ?? throw new SongServiceCreateException("Artist could not be found!");
+
+            Album existingAlbum = existingArtist.Albums.SingleOrDefault(s => s.Guid == dto.Album)
+                ?? throw new SongServiceCreateException("Album could not be found!");   
+            
+            if(dto.Title.Length < 3)
+            {
+                throw new ServiceValidationException("Title must have at least 3 characters!");
+            }
+
+            if (dto.Title.Length > 30)
+            {
+                throw new ServiceValidationException("Title is too long!");
+            }
+
+            Song newSong = new Song(Guid.NewGuid(), dto.Title, existingArtist, existingAlbum, dto.LiveVersion, dto.Single);
+
+            try
+            {
+                _songRepository.Create(newSong);
+                //_albumRepository.Edit(existingAlbum).AddSong(newSong);
+                return true;
+            }
+            catch (RepositoryCreateException ex)
+            {
+                throw new SongServiceCreateException("Method 'Create()' failed!", ex);
+            }
         }
     }
 }

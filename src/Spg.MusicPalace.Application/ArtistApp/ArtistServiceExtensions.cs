@@ -13,13 +13,41 @@ namespace Spg.MusicPalace.Application.ArtistApp
     {
         public static IArtistService UseStartsWithFilter(this IArtistService service, string filter)
         {
-            Expression<Func<Artist, bool>>? subjectFilterExpression = default!;
+            Expression<Func<Artist, bool>>? filterExpression = default!;
             if (!string.IsNullOrEmpty(filter))
             {
-                subjectFilterExpression = e => e.Name.StartsWith(filter);
+                filterExpression = e => e.Name.StartsWith(filter);
             }
 
-            service.FilterExpressions.Add(subjectFilterExpression);
+            service.FilterExpressions.Add(filterExpression);
+            return service;
+        }
+
+        public static IArtistService UseContainsFilter(this IArtistService service, string filter)
+        {
+            Expression<Func<Artist, bool>>? filterExpression = default!;
+            if (!string.IsNullOrEmpty(filter))
+            {
+                filterExpression = s => s.Name.Contains(filter);
+            }
+
+            service.FilterExpressions.Add(filterExpression);
+            return service;
+        }
+
+        public static IArtistService UseSorting(this IArtistService service, string order)
+        {
+            Func<IQueryable<Artist>, IOrderedQueryable<Artist>>? orderExpression = null;
+            orderExpression = order switch
+            {
+                "name_desc" => e => e.OrderByDescending(x => x.Name),
+                "songamount" => e => e.OrderBy(x => x.SongAmount),
+                "songamount_desc" => e => e.OrderByDescending(x => x.SongAmount),
+                "albumamount" => e => e.OrderBy(x => x.AlbumAmount),
+                "albumamount_desc" => e => e.OrderByDescending(x => x.AlbumAmount),
+                _ => e => e.OrderBy(x => x.Name),
+            };
+            service.SortOrderExpression = orderExpression;
             return service;
         }
 

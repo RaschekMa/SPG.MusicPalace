@@ -1,4 +1,5 @@
 using Spg.MusicPalace.Application;
+using Spg.MusicPalace.Application.ArtistApp;
 using Spg.MusicPalace.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.ConfigureSqLite();
 builder.Services.AddTransient<UserService>();
-builder.Services.AddTransient<MediaService>();
+builder.Services.AddTransient<ArtistService>();
 
 var app = builder.Build();
 

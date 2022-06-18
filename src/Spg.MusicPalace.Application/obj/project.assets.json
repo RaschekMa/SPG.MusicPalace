@@ -479,6 +479,20 @@
         "runtime": {
           "bin/placeholder/Spg.MusicPalace.Infrastructure.dll": {}
         }
+      },
+      "SPG.MusicPalace.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Spg.MusicPalace.Domain": "1.0.0",
+          "Spg.MusicPalace.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SPG.MusicPalace.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SPG.MusicPalace.Repository.dll": {}
+        }
       }
     }
   },
@@ -1142,10 +1156,16 @@
       "type": "project",
       "path": "../Spg.MusicPalace.Infrastructure/Spg.MusicPalace.Infrastructure.csproj",
       "msbuildProject": "../Spg.MusicPalace.Infrastructure/Spg.MusicPalace.Infrastructure.csproj"
+    },
+    "SPG.MusicPalace.Repository/1.0.0": {
+      "type": "project",
+      "path": "../SPG.MusicPalace.Repository/SPG.MusicPalace.Repository.csproj",
+      "msbuildProject": "../SPG.MusicPalace.Repository/SPG.MusicPalace.Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "SPG.MusicPalace.Repository >= 1.0.0",
       "Spg.MusicPalace.Dtos >= 1.0.0",
       "Spg.MusicPalace.Infrastructure >= 1.0.0"
     ]
@@ -1187,6 +1207,9 @@
             },
             "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Infrastructure\\Spg.MusicPalace.Infrastructure.csproj": {
               "projectPath": "D:\\VS\\SPG.MusicPalace\\src\\Spg.MusicPalace.Infrastructure\\Spg.MusicPalace.Infrastructure.csproj"
+            },
+            "D:\\VS\\SPG.MusicPalace\\src\\SPG.MusicPalace.Repository\\SPG.MusicPalace.Repository.csproj": {
+              "projectPath": "D:\\VS\\SPG.MusicPalace\\src\\SPG.MusicPalace.Repository\\SPG.MusicPalace.Repository.csproj"
             }
           }
         }

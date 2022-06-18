@@ -9,7 +9,7 @@ namespace Spg.MusicPalace.Domain.Model
 {
     public class Song : SubscriptionBase, ISubscribable
     {
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         private List<UserPlaylist> _inPlaylist = new();
         public IReadOnlyList<UserPlaylist> InPlaylist => _inPlaylist;
@@ -17,20 +17,23 @@ namespace Spg.MusicPalace.Domain.Model
         public Album Album { get; private set; }
         public bool LiveVersion { get; set; }
         public bool Single { get; set; }
+        public DateTime? Created { get; set; }
 
         // Konstruktor mit allen Parametern
 
         protected Song() { }
 
-        public Song(string _name, bool _liveversion, bool _single) 
+        public Song(Guid _guid, string _name, Artist artist, Album album, bool _liveversion, bool _single) 
             : base()
         {
-            Name = _name;
-            Artist = default!;
-            Album = default!;
+            Guid = _guid;
+            Title = _name;
+            Artist = artist;
+            Album = album;
             LiveVersion = _liveversion;
             Single = _single;
             Type = SubscriptionType.Song;
+            Created = DateTime.Now;
         }
 
         public void SetAlbum(Album album)

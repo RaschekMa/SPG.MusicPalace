@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Spg.MusicPalace.Dtos\Spg.MusicPalace.Dtos.csproj" />
     <ProjectReference Include="..\Spg.MusicPalace.Infrastructure\Spg.MusicPalace.Infrastructure.csproj" />
+    <ProjectReference Include="..\SPG.MusicPalace.Repository\SPG.MusicPalace.Repository.csproj" />
   </ItemGroup>
 
 </Project>

@@ -20,7 +20,7 @@ namespace Spg.MusicPalace.FrontEnd.Controllers
             Expression<Func<Song, bool>>? filterExpression = default;
             if (!string.IsNullOrEmpty(filter))
             {
-                filterExpression = s => s.Name.StartsWith(filter);
+                filterExpression = s => s.Title.StartsWith(filter);
             }
 
             Func<IQueryable<Song>, IOrderedQueryable<Song>>? sortOrderExpression = default;
@@ -31,19 +31,19 @@ namespace Spg.MusicPalace.FrontEnd.Controllers
                     sortOrderExpression = s => s.OrderBy(s => s.Artist.Name);
                     break;
                 case "album":
-                    sortOrderExpression = s => s.OrderBy(s => s.Album.Name);
+                    sortOrderExpression = s => s.OrderBy(s => s.Album.Title);
                     break;
                 case "name_desc":
-                    sortOrderExpression = s => s.OrderByDescending(s => s.Name);
+                    sortOrderExpression = s => s.OrderByDescending(s => s.Title);
                     break;
                 case "artist_desc":
                     sortOrderExpression = s => s.OrderByDescending(s => s.Artist.Name);
                     break;                
                 case "album_desc":
-                    sortOrderExpression = s => s.OrderByDescending(s => s.Album.Name);
+                    sortOrderExpression = s => s.OrderByDescending(s => s.Album.Title);
                     break;
                 default:
-                    sortOrderExpression = s => s.OrderBy(s => s.Name);
+                    sortOrderExpression = s => s.OrderBy(s => s.Title);
                     break;
             }
 

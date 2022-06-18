@@ -39,4 +39,4 @@ namespace SPG.MusicPalace.Repository
         TEntity Edit(TEntity newModel);
     }
 }
-}
+

@@ -9,20 +9,22 @@ namespace Spg.MusicPalace.Domain.Model
 {
     public class Album : SubscriptionBase, ISubscribable
     {
-        public string Name { get; set; }             
+        public string Title { get; set; }             
 
         private List<Song> _songs = new();
         public IReadOnlyList<Song> Songs => _songs;
         public int ArtistId { get; set; }
         public Artist Artist { get; private set; }
+        public int SongAmount => _songs.Count;
         
         protected Album() { }
 
-        public Album(string name) 
+        public Album(Guid guid, string title, Artist artist) 
             : base()
         {
-            Name = name;
-            Artist = default!;
+            Guid = guid;
+            Title = title;
+            Artist = artist;
             Type = SubscriptionType.Album;
         }
 

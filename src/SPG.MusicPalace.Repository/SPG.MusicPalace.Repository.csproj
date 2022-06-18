@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Spg.MusicPalace.Domain\Spg.MusicPalace.Domain.csproj" />
+    <ProjectReference Include="..\Spg.MusicPalace.Infrastructure\Spg.MusicPalace.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

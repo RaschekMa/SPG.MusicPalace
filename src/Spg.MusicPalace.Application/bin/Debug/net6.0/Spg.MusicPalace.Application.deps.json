@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Spg.MusicPalace.Application/1.0.0": {
         "dependencies": {
+          "SPG.MusicPalace.Repository": "1.0.0",
           "Spg.MusicPalace.Dtos": "1.0.0",
           "Spg.MusicPalace.Infrastructure": "1.0.0"
         },
@@ -366,6 +367,15 @@
         "runtime": {
           "Spg.MusicPalace.Infrastructure.dll": {}
         }
+      },
+      "SPG.MusicPalace.Repository/1.0.0": {
+        "dependencies": {
+          "Spg.MusicPalace.Domain": "1.0.0",
+          "Spg.MusicPalace.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "SPG.MusicPalace.Repository.dll": {}
+        }
       }
     }
   },
@@ -589,6 +599,11 @@
       "sha512": ""
     },
     "Spg.MusicPalace.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SPG.MusicPalace.Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

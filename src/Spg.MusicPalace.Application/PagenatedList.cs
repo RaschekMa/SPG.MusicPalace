@@ -41,5 +41,13 @@ namespace Spg.MusicPalace.Application
 
             return new PagenatedList<T>(items, count, pageIndex, pageSize);
         }
+
+        public static PagenatedList<T> CreateWithoutPaging(IQueryable<T> source)
+        {
+            var count = source.Count();
+            var items = source.ToList();
+
+            return new PagenatedList<T>(items, count, 1, count);
+        }
     }
 }

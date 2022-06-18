@@ -17,13 +17,31 @@ namespace Spg.MusicPalace.Domain.Model
         private List<Song> _singles = new();
         public IReadOnlyList<Song> Singles => _singles;
 
+        public int AlbumAmount => _albums.Count;
+        public int SongAmount => CountSongs();
+
         protected Artist() { }
 
-        public Artist(string name) 
+        public Artist(Guid guid, string name) 
             : base()
         {
+            Guid = guid;
             Name = name;
             Type = SubscriptionType.Artist;
+        }
+
+        public int CountSongs()
+        {
+            int sum = 0;
+
+            foreach (Album album in _albums)
+            {
+                sum += album.SongAmount;
+            }
+
+            sum += _singles.Count;
+
+            return sum;
         }
 
         public void AddAlbum(Album album)

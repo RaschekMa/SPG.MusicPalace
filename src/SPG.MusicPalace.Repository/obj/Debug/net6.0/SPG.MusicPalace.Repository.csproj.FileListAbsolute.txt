@@ -1,0 +1,17 @@
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\obj\Debug\net6.0\SPG.MusicPalace.Repository.csproj.AssemblyReference.cache
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\obj\Debug\net6.0\SPG.MusicPalace.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\obj\Debug\net6.0\SPG.MusicPalace.Repository.AssemblyInfoInputs.cache
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\obj\Debug\net6.0\SPG.MusicPalace.Repository.AssemblyInfo.cs
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\obj\Debug\net6.0\SPG.MusicPalace.Repository.csproj.CoreCompileInputs.cache
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\bin\Debug\net6.0\SPG.MusicPalace.Repository.deps.json
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\bin\Debug\net6.0\SPG.MusicPalace.Repository.dll
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\bin\Debug\net6.0\SPG.MusicPalace.Repository.pdb
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\bin\Debug\net6.0\Spg.MusicPalace.Domain.dll
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\bin\Debug\net6.0\Spg.MusicPalace.Infrastructure.dll
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\bin\Debug\net6.0\Spg.MusicPalace.Domain.pdb
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\bin\Debug\net6.0\Spg.MusicPalace.Infrastructure.pdb
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\obj\Debug\net6.0\SPG.MusicPalace.Repository.csproj.CopyComplete
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\obj\Debug\net6.0\SPG.MusicPalace.Repository.dll
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\obj\Debug\net6.0\refint\SPG.MusicPalace.Repository.dll
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\obj\Debug\net6.0\SPG.MusicPalace.Repository.pdb
+D:\VS\SPG.MusicPalace\src\SPG.MusicPalace.Repository\obj\Debug\net6.0\ref\SPG.MusicPalace.Repository.dll

@@ -32,3 +32,20 @@ C:\HTL Spengergasse\POS\CSharp\Spg.MusicPalace\Spg.MusicPalace\src\Spg.MusicPala
 C:\HTL Spengergasse\POS\CSharp\Spg.MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\Spg.MusicPalace.Infrastructure.pdb
 C:\HTL Spengergasse\POS\CSharp\Spg.MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\Spg.MusicPalace.Infrastructure.genruntimeconfig.cache
 D:\VS\MusicPalace\Spg.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\refint\Spg.MusicPalace.Infrastructure.dll
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\bin\Debug\net6.0\Spg.MusicPalace.Infrastructure.deps.json
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\bin\Debug\net6.0\Spg.MusicPalace.Infrastructure.runtimeconfig.json
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\bin\Debug\net6.0\Spg.MusicPalace.Infrastructure.dll
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\bin\Debug\net6.0\Spg.MusicPalace.Infrastructure.pdb
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\bin\Debug\net6.0\Spg.MusicPalace.Domain.dll
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\bin\Debug\net6.0\Spg.MusicPalace.Domain.pdb
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\Spg.MusicPalace.Infrastructure.csproj.AssemblyReference.cache
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\Spg.MusicPalace.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\Spg.MusicPalace.Infrastructure.AssemblyInfoInputs.cache
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\Spg.MusicPalace.Infrastructure.AssemblyInfo.cs
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\Spg.MusicPalace.Infrastructure.csproj.CoreCompileInputs.cache
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\Spg.MusicPalace.Infrastructure.csproj.CopyComplete
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\Spg.MusicPalace.Infrastructure.dll
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\refint\Spg.MusicPalace.Infrastructure.dll
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\Spg.MusicPalace.Infrastructure.pdb
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\Spg.MusicPalace.Infrastructure.genruntimeconfig.cache
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.Infrastructure\obj\Debug\net6.0\ref\Spg.MusicPalace.Infrastructure.dll

@@ -12,8 +12,6 @@ namespace Spg.MusicPalace.Domain.Model
         public Guid Guid { get; set; }
 
         protected EntityBase()
-        {
-            Guid = Guid.NewGuid();
-        }
+        {  }
     }
 }
