@@ -49,7 +49,10 @@ namespace Spg.MusicPalace.Application.SongApp
 
             IQueryable<SongDto> model = query.Select(s => new SongDto()
             {
-                Title = s.Title
+                Title = s.Title,
+                ArtistName = s.Artist.Name,
+                AlbumName = s.Album.Title,
+                Created = s.Created
             });
 
             if (PagingExpression is not null)
@@ -63,6 +66,7 @@ namespace Spg.MusicPalace.Application.SongApp
         {
             Artist existingArtist = _artistRepository.GetSingle(s => s.Guid == dto.Artist, string.Empty)
                 ?? throw new SongServiceCreateException("Artist could not be found!");
+                
 
             Album existingAlbum = existingArtist.Albums.SingleOrDefault(s => s.Guid == dto.Album)
                 ?? throw new SongServiceCreateException("Album could not be found!");   
@@ -77,7 +81,7 @@ namespace Spg.MusicPalace.Application.SongApp
                 throw new ServiceValidationException("Title is too long!");
             }
 
-            Song newSong = new Song(Guid.NewGuid(), dto.Title, existingArtist, existingAlbum, dto.LiveVersion, dto.Single);
+            Song newSong = new Song(Guid.NewGuid(), dto.Title, existingArtist, existingAlbum, dto.LiveVersion, dto.Single, dto.Created);
 
             try
             {
@@ -88,6 +92,22 @@ namespace Spg.MusicPalace.Application.SongApp
             catch (RepositoryCreateException ex)
             {
                 throw new SongServiceCreateException("Method 'Create()' failed!", ex);
+            }
+        }
+
+        public bool Delete(Song song)
+        {
+            Song existingSong = _songRepository.GetSingle(s => s.Guid == song.Guid, string.Empty)
+                ?? throw new SongServiceCreateException("Song could not be found!");
+
+            try
+            {
+                _songRepository.Delete(existingSong);
+                return true;
+            }
+            catch (RepositoryCreateException ex)
+            {
+                throw new SongServiceCreateException("Method 'Delete()' failed!", ex);
             }
         }
     }

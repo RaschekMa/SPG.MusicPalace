@@ -17,13 +17,13 @@ namespace Spg.MusicPalace.Domain.Model
         public Album Album { get; private set; }
         public bool LiveVersion { get; set; }
         public bool Single { get; set; }
-        public DateTime? Created { get; set; }
+        public DateTime Created { get; set; }
 
         // Konstruktor mit allen Parametern
 
         protected Song() { }
 
-        public Song(Guid _guid, string _name, Artist artist, Album album, bool _liveversion, bool _single) 
+        public Song(Guid _guid, string _name, Artist artist, Album album, bool _liveversion, bool _single, DateTime _created) 
             : base()
         {
             Guid = _guid;
@@ -33,7 +33,7 @@ namespace Spg.MusicPalace.Domain.Model
             LiveVersion = _liveversion;
             Single = _single;
             Type = SubscriptionType.Song;
-            Created = DateTime.Now;
+            Created = _created;
         }
 
         public void SetAlbum(Album album)

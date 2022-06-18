@@ -45,18 +45,18 @@ namespace Spg.MusicPalace.Application.SongApp
             if (!string.IsNullOrEmpty(dateFrom)
                 && DateTime.TryParse(dateFrom, out dateFromFilter))
             {
-                dateFilterExpression = e => e.Created.HasValue && e.Created.Value >= dateFromFilter;
+                dateFilterExpression = e => e.Created >= dateFromFilter;
                 if (!string.IsNullOrEmpty(dateTo)
                     && DateTime.TryParse(dateTo, out dateToFilter))
                 {
-                    dateFilterExpression = e => e.Created.HasValue && e.Created.Value >= dateFromFilter
-                        && e.Created.Value < dateToFilter;
+                    dateFilterExpression = e => e.Created >= dateFromFilter
+                        && e.Created < dateToFilter;
                 }
             }
             else if (!string.IsNullOrEmpty(dateTo)
                 && DateTime.TryParse(dateTo, out dateToFilter))
             {
-                dateFilterExpression = e => e.Created.HasValue && e.Created.Value < dateToFilter;
+                dateFilterExpression = e => e.Created < dateToFilter;
             }
             filterExpressions.Add(dateFilterExpression);
 
@@ -69,7 +69,7 @@ namespace Spg.MusicPalace.Application.SongApp
             Func<IQueryable<Song>, IOrderedQueryable<Song>>? orderExpression = null;
             orderExpression = order switch
             {
-                "name_desc" => e => e.OrderByDescending(x => x.Title),
+                "title_desc" => e => e.OrderByDescending(x => x.Title),
                 "album" => e => e.OrderBy(x => x.Album.Title),
                 "album_desc" => e => e.OrderByDescending(x => x.Album.Title),
                 "artist" => e => e.OrderBy(x => x.Artist.Name),

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Spg.MusicPalace.Application;
+using Spg.MusicPalace.Application.SongApp;
 using Spg.MusicPalace.Domain.Model;
 using Spg.MusicPalace.Dtos;
 using System.Linq.Expressions;
@@ -8,58 +10,58 @@ namespace Spg.MusicPalace.FrontEnd.Controllers
 {
     public class SongsController : Controller
     {
-        private readonly MediaService _mediaService;
+        private readonly ISongService _songService;
 
-        public SongsController(MediaService mediaService)
+        public SongsController(ISongService songService)
         {
-            _mediaService = mediaService;
-        }        
-
-        public IActionResult Index(string filter, string sortOrder, int pageIndex = 1)
-        {
-            Expression<Func<Song, bool>>? filterExpression = default;
-            if (!string.IsNullOrEmpty(filter))
-            {
-                filterExpression = s => s.Title.StartsWith(filter);
-            }
-
-            Func<IQueryable<Song>, IOrderedQueryable<Song>>? sortOrderExpression = default;
-
-            switch (sortOrder)
-            {
-                case "artist":
-                    sortOrderExpression = s => s.OrderBy(s => s.Artist.Name);
-                    break;
-                case "album":
-                    sortOrderExpression = s => s.OrderBy(s => s.Album.Title);
-                    break;
-                case "name_desc":
-                    sortOrderExpression = s => s.OrderByDescending(s => s.Title);
-                    break;
-                case "artist_desc":
-                    sortOrderExpression = s => s.OrderByDescending(s => s.Artist.Name);
-                    break;                
-                case "album_desc":
-                    sortOrderExpression = s => s.OrderByDescending(s => s.Album.Title);
-                    break;
-                default:
-                    sortOrderExpression = s => s.OrderBy(s => s.Title);
-                    break;
-            }
-
-            IQueryable<SongDto> result = _mediaService.ListAllSongs(filterExpression, sortOrderExpression);
-
-            int pageSize = 10;
-            PagenatedList<SongDto> pegenatedResult = PagenatedList<SongDto>.Create(result, pageIndex, pageSize);            
-
-            return View(pegenatedResult);
+            _songService = songService;
         }
 
         [HttpGet()]
-        public IActionResult Edit()
+        public IActionResult Index(string filter, string currentFilter, string sortOrder, string dateFrom, string dateTo, int pageIndex = 1)
         {
-            return View();
+            filter = filter ?? currentFilter;
+
+            ViewData["sortParamTitle"] = sortOrder == "title" ? "title_desc" : "title";
+            ViewData["sortParamArtist"] = sortOrder == "artist" ? "artist_desc" : "artist";
+            ViewData["sortParamAlbum"] = sortOrder == "album" ? "album_desc" : "album";
+            ViewData["sortParamCreated"] = sortOrder == "created" ? "created_desc" : "created";
+
+            _songService
+                .UseContainsFilter(filter)
+                .UseSorting(sortOrder)
+                .UsePaging(pageIndex, 20)
+                .UseCreatedDateFilter(dateFrom, dateTo);
+
+            PagenatedList<SongDto> model = _songService.ListAll();
+            return View((model, filter));
         }
+
+        //[HttpPost]
+        //public IActionResult Create(NewSongDto model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        ViewBag.subjects = new SelectList(_subjectService.ListAll(), "Guid", "Description");
+        //        return View(model);
+        //    }
+        //    try
+        //    {
+        //        _examService.Create(model);
+        //        return RedirectToAction("Index", "Exam");
+        //    }
+        //    catch (ExamServiceCreateException ex)
+        //    {
+        //        ModelState.AddModelError(string.Empty, ex.Message); // Work Around
+        //        //return StatusCode(500); Das wäre natürlich besser
+        //    }
+        //    catch (ServiceValidationException ex)
+        //    {
+        //        ModelState.AddModelError(string.Empty, ex.Message);
+        //    }
+        //    ViewBag.subjects = new SelectList(_subjectService.ListAll(), "Guid", "Description");
+        //    return View(model);
+        //}
 
         [HttpPost()]
         public IActionResult Edit(SongDto model)

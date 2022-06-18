@@ -37,6 +37,8 @@ namespace SPG.MusicPalace.Repository
         TEntity Create(TEntity newModel);
 
         TEntity Edit(TEntity newModel);
+
+        TEntity Delete(TEntity newModel);
     }
 }
 

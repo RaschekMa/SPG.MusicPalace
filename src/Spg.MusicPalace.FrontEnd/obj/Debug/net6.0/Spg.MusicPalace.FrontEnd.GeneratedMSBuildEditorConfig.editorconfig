@@ -15,6 +15,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.FrontEnd
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/VS/SPG.MusicPalace/src/Spg.MusicPalace.FrontEnd/Views/Albums/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1zXERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS/SPG.MusicPalace/src/Spg.MusicPalace.FrontEnd/Views/Albums/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS/SPG.MusicPalace/src/Spg.MusicPalace.FrontEnd/Views/Artists/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/VS/SPG.MusicPalace/src/Spg.MusicPalace.FrontEnd/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -29,6 +41,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/VS/SPG.MusicPalace/src/Spg.MusicPalace.FrontEnd/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS/SPG.MusicPalace/src/Spg.MusicPalace.FrontEnd/Views/Songs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/VS/SPG.MusicPalace/src/Spg.MusicPalace.FrontEnd/Views/Songs/Index.cshtml]

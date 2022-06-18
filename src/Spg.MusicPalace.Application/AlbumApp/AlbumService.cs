@@ -47,7 +47,8 @@ namespace Spg.MusicPalace.Application.AlbumApp
 
             IQueryable<AlbumDto> model = query.Select(s => new AlbumDto()
             {
-                Title = s.Title
+                Title = s.Title,
+                SongAmount = s.SongAmount
             });
 
             if (PagingExpression is not null)

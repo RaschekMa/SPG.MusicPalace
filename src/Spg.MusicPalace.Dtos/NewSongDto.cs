@@ -13,5 +13,6 @@ namespace Spg.MusicPalace.Dtos
         public bool Single { get; set; } = false;
         public Guid Artist { get; set; }
         public Guid Album { get; set; }
+        public DateTime Created { get; set; }
     }
 }

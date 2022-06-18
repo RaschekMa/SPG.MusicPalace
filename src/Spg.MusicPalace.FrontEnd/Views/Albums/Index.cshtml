@@ -1,0 +1,22 @@
+﻿@using Spg.MusicPalace.Application;
+@model PagenatedList<Spg.MusicPalace.Dtos.AlbumDto>
+
+<h3>Liste aller Artists</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Songs</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Spg.MusicPalace.Dtos.AlbumDto item in @Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.SongAmount</td>
+            </tr>
+        }
+    </tbody>
+</table>

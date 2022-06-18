@@ -1,0 +1,64 @@
+﻿@using Spg.MusicPalace.Application;
+@model (PagenatedList<Spg.MusicPalace.Dtos.ArtistDto> artists, string filter)
+
+@{
+    string hasPrevious = Model.artists.HasPreviousPage ? "" : "disabled";
+    string hasNext = Model.artists.HasNextPage ? "" : "disabled";
+}
+
+<h3>All Artists</h3>
+
+@if (Model.artists is not null 
+    && Model.artists.Count > 0)
+{
+
+    <form method="get">
+        <label>FilterName</label>
+        <input name="filter" value="@Model.filter">
+        <button type="submit">Go</button>
+    </form>
+
+    <a 
+        asp-action="Index" 
+        asp-route-currentSubject="@Model.filter" 
+        asp-route-pageIndex="@(Model.artists.PageIndex - 1)"
+        class ="btn btn-secondary @hasPrevious">Previous
+    </a>
+    <a 
+        asp-action="Index" 
+        asp-route-currentSubject="@Model.filter" 
+        asp-route-pageIndex="@(Model.artists.PageIndex + 1)"
+        class ="btn btn-secondary @hasNext">Next
+    </a>
+
+    <p>
+        Page @Model.artists.PageIndex of @Model.artists.TotalPages
+    </p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Albums</th>
+            <th>Songs</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Spg.MusicPalace.Dtos.ArtistDto item in @Model.artists)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.AlbumAmount</td>
+                <td>@item.SongAmount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        No data found!
+    </div>
+}

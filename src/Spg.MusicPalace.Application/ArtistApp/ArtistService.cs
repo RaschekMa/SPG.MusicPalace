@@ -23,8 +23,8 @@ namespace Spg.MusicPalace.Application.ArtistApp
         public ArtistService(IRepositoryBase<Artist> artistRepository)
         {
             _artistRepository = artistRepository;
-
         }
+
         public PagenatedList<ArtistDto> ListAll()
         {
             IQueryable<Artist> query = _artistRepository.GetAll();
@@ -44,7 +44,9 @@ namespace Spg.MusicPalace.Application.ArtistApp
 
             IQueryable<ArtistDto> model = query.Select(s => new ArtistDto()
             {
-                Name = s.Name
+                Name = s.Name,
+                AlbumAmount = s.AlbumAmount,
+                SongAmount = s.SongAmount
             });
 
             if (PagingExpression is not null)
