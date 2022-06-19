@@ -17,5 +17,6 @@ namespace Spg.MusicPalace.Application.AlbumApp
 
         PagenatedList<AlbumDto> ListAll();
         bool Create(NewAlbumDto dto);
+        AlbumDto Details(Guid guid);
     }
 }

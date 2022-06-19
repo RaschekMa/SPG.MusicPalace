@@ -1,0 +1,19 @@
+﻿@model Spg.MusicPalace.Dtos.SongDto
+
+<h3>Details of song @Model.Title</h3>
+
+@if (Model is not null)
+{
+<dl>
+    <dt>Title:</dt>
+    <dd>@Model.Title</dd>
+    <dt>Guid:</dt>
+    <dd>@Model.Guid</dd>
+</dl>
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        No data found!
+    </div>
+}

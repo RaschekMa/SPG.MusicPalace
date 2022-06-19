@@ -68,7 +68,7 @@ namespace Spg.MusicPalace.Application.SongApp
                 ?? throw new SongServiceCreateException("Artist could not be found!");
                 
 
-            Album existingAlbum = existingArtist.Albums.SingleOrDefault(s => s.Guid == dto.Album)
+            Album existingAlbum = _albumRepository.GetSingle(s => s.Guid == dto.Album, string.Empty)
                 ?? throw new SongServiceCreateException("Album could not be found!");   
             
             if(dto.Title.Length < 3)
@@ -93,6 +93,20 @@ namespace Spg.MusicPalace.Application.SongApp
             {
                 throw new SongServiceCreateException("Method 'Create()' failed!", ex);
             }
+        }
+
+        public SongDto Details(Guid guid)
+        {
+            Song song = _songRepository.GetSingle(s => s.Guid == guid)
+                ?? throw new KeyNotFoundException("Song could not be found!");
+
+            SongDto dto = new SongDto()
+            {
+                Title = song.Title,
+                Guid = song.Guid
+            };
+
+            return dto;
         }
 
         public bool Delete(Song song)

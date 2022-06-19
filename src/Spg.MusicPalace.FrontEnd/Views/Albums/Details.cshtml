@@ -1,0 +1,20 @@
+﻿@model Spg.MusicPalace.Dtos.AlbumDto
+
+<h3>Details of album @Model.Title</h3>
+
+@if (Model is not null)
+{
+<dl>
+    <dt>Title:</dt>
+    <dd>@Model.Title</dd>
+    <dt>Guid:</dt>
+    <dd>@Model.Guid</dd>
+    <a asp-controller="Songs" asp-action="Delete" asp-route-id="@item.Guid">Delete</a>
+</dl>
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        No data found!
+    </div>
+}

@@ -47,7 +47,9 @@ namespace Spg.MusicPalace.Application.AlbumApp
 
             IQueryable<AlbumDto> model = query.Select(s => new AlbumDto()
             {
+                Guid = s.Guid,
                 Title = s.Title,
+                Artistname = s.Artist.Name,                
                 SongAmount = s.SongAmount
             });
 
@@ -74,6 +76,30 @@ namespace Spg.MusicPalace.Application.AlbumApp
             {
                 throw new AlbumServiceCreateException("Methode 'Create()' ist fehlgeschlagen!", ex);
             }
+        }
+
+        public AlbumDto Details(Guid guid)
+        {
+            Album album = _albumRepository.GetSingle(s => s.Guid == guid)
+                ?? throw new KeyNotFoundException("Album could not be found!");
+
+            List<string> songTitles = new List<string>();
+
+            foreach (Song song in album.Songs)
+            {
+                songTitles.Add(song.Title);
+            }
+
+            AlbumDto dto = new AlbumDto()
+            {
+                Title = album.Title,
+                Guid = album.Guid,
+                //Artistname = album.Artist.Name,
+                SongTitles = songTitles,
+                SongAmount = album.SongAmount
+            };
+
+            return dto;
         }
     }    
 }

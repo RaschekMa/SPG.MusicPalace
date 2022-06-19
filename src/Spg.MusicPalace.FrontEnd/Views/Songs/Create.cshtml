@@ -1,5 +1,19 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Spg.MusicPalace.Dtos.NewSongDto
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <label asp-for="Title">Name:</label>
+    <input asp-for="Title" type="text" />
+    <br />    
+    <label asp-for="Artist">Artist:</label>
+    <select asp-for="Artist" asp-items="@ViewBag.artists">Artist</select>
+    <br />    
+    <label asp-for="Album">Album:</label>
+    <select asp-for="Album" asp-items="@ViewBag.albums"></select>
+    <br />    
+    <label asp-for="Created">Created:</label>
+    <input asp-for="Created" type"date"/>
+    <hr />
+
+    <button type="submit">Create</button>
+</form>

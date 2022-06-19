@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Spg.MusicPalace.Application;
+using Spg.MusicPalace.Application.AlbumApp;
+using Spg.MusicPalace.Application.ArtistApp;
 using Spg.MusicPalace.Application.SongApp;
+using Spg.MusicPalace.Domain.Exceptions;
 using Spg.MusicPalace.Domain.Model;
 using Spg.MusicPalace.Dtos;
 using System.Linq.Expressions;
@@ -11,10 +14,14 @@ namespace Spg.MusicPalace.FrontEnd.Controllers
     public class SongsController : Controller
     {
         private readonly ISongService _songService;
+        private readonly IAlbumService _albumService;
+        private readonly IArtistService _artistService;
 
-        public SongsController(ISongService songService)
+        public SongsController(ISongService songService, IAlbumService albumService, IArtistService artistService)
         {
             _songService = songService;
+            _albumService = albumService;
+            _artistService = artistService;
         }
 
         [HttpGet()]
@@ -37,31 +44,47 @@ namespace Spg.MusicPalace.FrontEnd.Controllers
             return View((model, filter));
         }
 
-        //[HttpPost]
-        //public IActionResult Create(NewSongDto model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        ViewBag.subjects = new SelectList(_subjectService.ListAll(), "Guid", "Description");
-        //        return View(model);
-        //    }
-        //    try
-        //    {
-        //        _examService.Create(model);
-        //        return RedirectToAction("Index", "Exam");
-        //    }
-        //    catch (ExamServiceCreateException ex)
-        //    {
-        //        ModelState.AddModelError(string.Empty, ex.Message); // Work Around
-        //        //return StatusCode(500); Das wäre natürlich besser
-        //    }
-        //    catch (ServiceValidationException ex)
-        //    {
-        //        ModelState.AddModelError(string.Empty, ex.Message);
-        //    }
-        //    ViewBag.subjects = new SelectList(_subjectService.ListAll(), "Guid", "Description");
-        //    return View(model);
-        //}
+        [HttpGet()]
+        public IActionResult Create()
+        {
+            ViewBag.artists = new SelectList(_artistService.ListAll(), "Guid", "Name");
+            ViewBag.albums = new SelectList(_albumService.ListAll(), "Guid", "Title");
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(NewSongDto model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.artists = new SelectList(_artistService.ListAll(), "Guid", "Name");
+                ViewBag.albums = new SelectList(_albumService.ListAll(), "Guid", "Title");
+                return View(model);
+            }
+            try
+            {
+                _songService.Create(model);
+                return RedirectToAction("Index", "Songs");
+            }
+            catch (SongServiceCreateException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+            }
+            catch (ServiceValidationException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+            }
+            ViewBag.artists = new SelectList(_artistService.ListAll(), "Guid", "Name");
+            ViewBag.albums = new SelectList(_albumService.ListAll(), "Guid", "Title");
+            return View(model);
+        }
+
+        [HttpGet()]
+        public IActionResult Details(Guid id)
+        {
+            SongDto model = _songService.Details(id);
+            return View(model);
+        }
 
         [HttpPost()]
         public IActionResult Edit(SongDto model)

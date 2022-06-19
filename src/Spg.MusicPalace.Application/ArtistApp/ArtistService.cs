@@ -1,4 +1,5 @@
-﻿using Spg.MusicPalace.Domain.Exceptions;
+﻿using Microsoft.EntityFrameworkCore;
+using Spg.MusicPalace.Domain.Exceptions;
 using Spg.MusicPalace.Domain.Model;
 using Spg.MusicPalace.Dtos;
 using Spg.MusicPalace.Infrastructure;
@@ -44,6 +45,7 @@ namespace Spg.MusicPalace.Application.ArtistApp
 
             IQueryable<ArtistDto> model = query.Select(s => new ArtistDto()
             {
+                Guid = s.Guid,
                 Name = s.Name,
                 AlbumAmount = s.AlbumAmount,
                 SongAmount = s.SongAmount

@@ -38,6 +38,8 @@
     <button type="submit">Go</button>
     </form>
 
+    <a asp-controller="Songs" asp-action="Create">Create</a>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -83,6 +85,9 @@
                 <td>@item.ArtistName</td>
                 <td>@item.AlbumName</td>
                 <td>@item.Created</td>
+                <td>
+                    <a asp-controller="Songs" asp-action="Details" asp-route-id="@item.Guid">Details</a>
+                </td>
             </tr>
         }
     </tbody>

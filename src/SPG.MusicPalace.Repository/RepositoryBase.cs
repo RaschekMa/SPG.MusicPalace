@@ -41,7 +41,7 @@ namespace SPG.MusicPalace.Repository
                 result = sortOrder(result);
             }
 
-            if (string.IsNullOrEmpty(includeNavigationProperty))
+            if (!string.IsNullOrEmpty(includeNavigationProperty))
             {
                 foreach (var item in includeNavigationProperty.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
                 {

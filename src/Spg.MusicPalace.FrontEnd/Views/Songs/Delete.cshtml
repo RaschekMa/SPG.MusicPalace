@@ -1,0 +1,17 @@
+﻿@model Spg.MusicPalace.Dtos.SongDto
+
+<h3>Delete @Model.Title ?</h3>
+
+@if (Model is not null)
+{
+<dl>
+    <a asp-controller="Songs" asp-action="Delete" asp-route-id="@Model.Guid">Yes</a>
+    <a asp-controller="Songs" asp-action="Delete" asp-route-id="@Model.Guid">No</a>
+</dl>
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        No data found!
+    </div>
+}

@@ -1,13 +1,18 @@
 ﻿@using Spg.MusicPalace.Application;
 @model PagenatedList<Spg.MusicPalace.Dtos.AlbumDto>
 
-<h3>Liste aller Artists</h3>
+<h3>All Albums</h3>
 
+@if (Model is not null 
+    && Model.Count > 0)
+{
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Title</th>
+            <th>Artist</th>
             <th>Songs</th>
+            <th>Links</th>
         </tr>
     </thead>
     <tbody>
@@ -15,8 +20,20 @@
         {
             <tr>
                 <td>@item.Title</td>
+                <td>@item.Artistname</td>
                 <td>@item.SongAmount</td>
+                <td>
+                    <a asp-controller="Albums" asp-action="Details" asp-route-id="@item.Guid">Details</a>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        No data found!
+    </div>
+}

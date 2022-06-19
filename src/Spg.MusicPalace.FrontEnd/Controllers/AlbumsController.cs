@@ -25,9 +25,9 @@ namespace Spg.MusicPalace.FrontEnd.Controllers
         }
 
         [HttpGet()]
-        public IActionResult Detail(Guid guid)
+        public IActionResult Details(Guid id)
         {
-            PagenatedList<AlbumDto> model = _albumService.ListAll();
+            AlbumDto model = _albumService.Details(id);
             return View(model);
         }
     }
