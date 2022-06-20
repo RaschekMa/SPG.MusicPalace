@@ -2,17 +2,9 @@
 
 <h3>Delete (@Model.Title)?</h3>
 
-@if (Model is not null)
-{
-    <form method="post">
-        <button type="submit" class="btn-danger">Yes</button>
-    </form>    
-    <a asp-controller="Songs" asp-action="Index">Back</a>
 
-}
-else
-{
-    <div class="alert alert-danger" role="alert">
-        No data found!
-    </div>
-}
+<form method="post">
+    <button type="submit" class="btn-danger">Yes</button>
+</form>    
+<a asp-controller="Songs" asp-action="Index">Back</a>
+

@@ -53,6 +53,8 @@ namespace Spg.MusicPalace.Application.SongApp
             {
                 Guid = s.Guid,
                 Title = s.Title,
+                ArtistId = s.ArtistId,
+                AlbumId = s.AlbumId,
                 ArtistName = s.Artist.Name,
                 AlbumName = s.Album.Title,
                 Created = s.Created
@@ -87,7 +89,7 @@ namespace Spg.MusicPalace.Application.SongApp
             }
 
             Song newSong = new Song(Guid.NewGuid(), dto.Title, existingArtist, existingAlbum, dto.LiveVersion, dto.Single, dto.Created);
-            
+
             try
             {
                 _songRepository.Create(newSong);

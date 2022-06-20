@@ -1,11 +1,43 @@
 ﻿@using Spg.MusicPalace.Application;
-@model PagenatedList<Spg.MusicPalace.Dtos.AlbumDto>
+@model (PagenatedList<Spg.MusicPalace.Dtos.AlbumDto> albums, string filter)
+
+@{
+    string hasPrevious = Model.albums.HasPreviousPage ? "" : "disabled";
+    string hasNext = Model.albums.HasNextPage ? "" : "disabled";
+}
 
 <h3>All Albums</h3>
 
-@if (Model is not null 
-    && Model.Count > 0)
+@if (Model.albums is not null 
+    && Model.albums.Count > 0)
 {
+    <form method="get">
+        <label>FilterName</label>
+        <input name="filter" value="@Model.filter">
+        <button type="submit">Go</button>
+    </form>
+
+    <a 
+        asp-action="Index" 
+        asp-route-currentSubject="@Model.filter" 
+        asp-route-pageIndex="@(Model.albums.PageIndex - 1)"
+        class ="btn btn-secondary @hasPrevious">Previous
+    </a>
+    <a 
+        asp-action="Index" 
+        asp-route-currentSubject="@Model.filter" 
+        asp-route-pageIndex="@(Model.albums.PageIndex + 1)"
+        class ="btn btn-secondary @hasNext">Next
+    </a>
+
+    <p>
+        Page @Model.albums.PageIndex of @Model.albums.TotalPages
+    </p>
+
+    <form method="get">
+        <button type="submit" asp-controller="Albums" asp-action="Create">Create</button>
+    </form>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -16,7 +48,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(Spg.MusicPalace.Dtos.AlbumDto item in @Model)
+        @foreach(Spg.MusicPalace.Dtos.AlbumDto item in @Model.albums)
         {
             <tr>
                 <td>@item.Title</td>

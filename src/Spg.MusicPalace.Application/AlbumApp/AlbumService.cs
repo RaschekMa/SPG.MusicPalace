@@ -51,6 +51,7 @@ namespace Spg.MusicPalace.Application.AlbumApp
             {
                 Guid = s.Guid,
                 Title = s.Title,
+                ArtistId = s.ArtistId,
                 Artistname = s.Artist.Name,                
                 SongAmount = s.Songs.Count
             });
@@ -65,13 +66,16 @@ namespace Spg.MusicPalace.Application.AlbumApp
         public bool Create(NewAlbumDto dto)
         {
             Artist existingArtist = _artistRepository.GetSingle(s => s.Guid == dto.Artist, string.Empty)
-                ?? throw new SongServiceCreateException("Artist could not be found!");
+                ?? throw new SongServiceCreateException("Album could not be found!");
 
             Album newAlbum = new Album(Guid.NewGuid(), dto.Title, existingArtist);
+
+            existingArtist.AddAlbum(newAlbum);
 
             try
             {
                 _albumRepository.Create(newAlbum);
+                _artistRepository.Edit(existingArtist);
                 return true;
             }
             catch (RepositoryCreateException ex)

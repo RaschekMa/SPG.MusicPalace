@@ -15,12 +15,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.FrontEnd
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/VS/SPG.MusicPalace/src/Spg.MusicPalace.FrontEnd/Views/Albums/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/VS/SPG.MusicPalace/src/Spg.MusicPalace.FrontEnd/Views/Albums/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/VS/SPG.MusicPalace/src/Spg.MusicPalace.FrontEnd/Views/Albums/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS/SPG.MusicPalace/src/Spg.MusicPalace.FrontEnd/Views/Artists/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/VS/SPG.MusicPalace/src/Spg.MusicPalace.FrontEnd/Views/Artists/Index.cshtml]

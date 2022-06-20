@@ -37,7 +37,7 @@ namespace Spg.MusicPalace.FrontEnd.Controllers
             _songService
                 .UseContainsFilter(filter)
                 .UseSorting(sortOrder)
-                .UsePaging(pageIndex, 20)
+                .UsePaging(pageIndex, 10)
                 .UseCreatedDateFilter(dateFrom, dateTo);
 
             PagenatedList<SongDto> model = _songService.ListAll();

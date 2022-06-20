@@ -1,0 +1,13 @@
+﻿@model Spg.MusicPalace.Dtos.NewArtistDto
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <label asp-for="Name">Name:</label>
+    <input asp-for="Name" type="text" />
+    <hr />
+
+    <button type="submit">Create</button>
+</form>
+<form method="get">    
+    <button type="submit" asp-controller="Artists" asp-action="Index">Back</button>
+</form>

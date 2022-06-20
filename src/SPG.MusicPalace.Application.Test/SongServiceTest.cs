@@ -38,8 +38,8 @@ namespace SPG.MusicPalace.Application.Test
                 Title = "In The End",
                 LiveVersion = false,
                 Single = false,
-                Artist = new Guid("661afcb4-2751-4232-b056-1e829b03cfe4"),
-                Album = new Guid("a56a905d-2be8-4696-9e4b-b6d3e4a29b00"),
+                Artist = new Guid("5A39C442-7D0F-445C-A686-0949E6E1B3B8"),
+                Album = new Guid("7BEE553C-6FC9-4ED7-8781-DA06915974C8"),
                 Created = new System.DateTime(2022, 06, 18),
             };
 
@@ -56,7 +56,7 @@ namespace SPG.MusicPalace.Application.Test
             MusicPalaceDbContext db = GenerateDb();
             SongDto newSong = new SongDto()
             {
-                Guid = new Guid("970e4d2a-e353-4de5-beb0-3ce30e99c1a2")
+                Guid = new Guid("8F8A3D59-54E0-42CB-B7DD-1ADD98468791")
             };
 
             int expected = db.Songs.Count() - 1;

@@ -30,6 +30,10 @@
         class ="btn btn-secondary @hasNext">Next
     </a>
 
+    <p>
+        Page @Model.songs.PageIndex of @Model.songs.TotalPages
+    </p>
+
     <form method="get">    
     <label>From</label>
     <input name="dateFrom" type="date" />
@@ -77,6 +81,7 @@
                     asp-route-sortOrder="@ViewData["sortParamCreated"]">Created
                 </a>
             </th>
+            <th>Links</th>
         </tr>
     </thead>
     <tbody>
