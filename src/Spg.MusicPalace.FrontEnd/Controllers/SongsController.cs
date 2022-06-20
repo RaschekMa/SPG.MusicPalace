@@ -86,6 +86,33 @@ namespace Spg.MusicPalace.FrontEnd.Controllers
             return View(model);
         }
 
+        [HttpGet()]
+        public IActionResult Delete(Guid id)
+        {
+            SongDto model = _songService.Details(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(SongDto model)
+        {
+            try
+            {
+                _songService.Delete(model.Guid);
+                return RedirectToAction("Index", "Songs");
+            }
+            catch (SongServiceCreateException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return StatusCode(500);
+            }
+            catch (ServiceValidationException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return StatusCode(500);
+            }
+        }
+
         [HttpPost()]
         public IActionResult Edit(SongDto model)
         {

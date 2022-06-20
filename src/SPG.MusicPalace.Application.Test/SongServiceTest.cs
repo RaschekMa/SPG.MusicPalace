@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Spg.MusicPalace.Application;
 using Spg.MusicPalace.Application.SongApp;
 using Spg.MusicPalace.Domain.Model;
 using Spg.MusicPalace.Dtos;
@@ -38,11 +39,28 @@ namespace SPG.MusicPalace.Application.Test
                 LiveVersion = false,
                 Single = false,
                 Artist = new Guid("661afcb4-2751-4232-b056-1e829b03cfe4"),
-                Album = new Guid("a56a905d-2be8-4696-9e4b-b6d3e4a29b00")
+                Album = new Guid("a56a905d-2be8-4696-9e4b-b6d3e4a29b00"),
+                Created = new System.DateTime(2022, 06, 18),
             };
 
             int expected = db.Songs.Count() + 1;
-            bool result = new SongService(new RepositoryBase<Song>(db), new RepositoryBase<Artist>(db), new RepositoryBase<Album>(db)).Create(newSong);
+            bool result = new SongService(new RepositoryBase<Song>(db), new RepositoryBase<Artist>(db), new RepositoryBase<Album>(db), new DateTimeService()).Create(newSong);
+            int actual = db.Songs.Count();
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Delete_Success_Test()
+        {
+            MusicPalaceDbContext db = GenerateDb();
+            SongDto newSong = new SongDto()
+            {
+                Guid = new Guid("970e4d2a-e353-4de5-beb0-3ce30e99c1a2")
+            };
+
+            int expected = db.Songs.Count() - 1;
+            bool result = new SongService(new RepositoryBase<Song>(db), new RepositoryBase<Artist>(db), new RepositoryBase<Album>(db), new DateTimeService()).Delete(newSong.Guid);
             int actual = db.Songs.Count();
 
             Assert.Equal(expected, actual);

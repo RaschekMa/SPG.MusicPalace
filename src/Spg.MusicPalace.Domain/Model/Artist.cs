@@ -17,9 +17,6 @@ namespace Spg.MusicPalace.Domain.Model
         private List<Song> _singles = new();
         public IReadOnlyList<Song> Singles => _singles;
 
-        public int AlbumAmount { get; set; }
-        public int SongAmount { get; set; }
-
         protected Artist() 
         { }
 
@@ -31,19 +28,7 @@ namespace Spg.MusicPalace.Domain.Model
             Type = SubscriptionType.Artist;
         }
 
-        public int CountSongs()
-        {
-            int sum = 0;
-
-            foreach (Album album in _albums)
-            {
-                sum += album.SongAmount;
-            }
-
-            sum += _singles.Count;
-
-            return sum;
-        }
+        
 
         public void AddAlbum(Album album)
         {
@@ -51,16 +36,12 @@ namespace Spg.MusicPalace.Domain.Model
             {
                 album.SetArtist(this);
                 _albums.Add(album);
-                AlbumAmount++;
-                CountSongs();
             }
         }
 
         public void RemoveAlbum(Album album)
         {
             _albums.Remove(album);
-            AlbumAmount--;
-            CountSongs();
         }
 
         //public void AddSingle(Song song)

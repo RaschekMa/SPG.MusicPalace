@@ -13,9 +13,11 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.ConfigureSqLite();
 builder.Services.AddTransient<UserService>();
+builder.Services.AddTransient<MusicPalaceDbContext>();
 builder.Services.AddTransient<ISongService, SongService>();
 builder.Services.AddTransient<IAlbumService, AlbumService>();
 builder.Services.AddTransient<IArtistService, ArtistService>();
+builder.Services.AddTransient<IDateTimeService, DateTimeService>();
 
 builder.Services.AddTransient<IRepositoryBase<Song>, RepositoryBase<Song>>();
 builder.Services.AddTransient<IRepositoryBase<Album>, RepositoryBase<Album>>();

@@ -17,15 +17,17 @@ namespace Spg.MusicPalace.Application.AlbumApp
     {
         private readonly IRepositoryBase<Album> _albumRepository;
         private readonly IRepositoryBase<Artist> _artistRepository;
+        private readonly MusicPalaceDbContext _dbContext;
 
         public List<Expression<Func<Album, bool>>> FilterExpressions { get; set; } = new();
         public Func<IQueryable<Album>, IOrderedQueryable<Album>>? SortOrderExpression { get; set; }
         public Func<IQueryable<AlbumDto>, PagenatedList<AlbumDto>> PagingExpression { get; set; }
 
-        public AlbumService(IRepositoryBase<Album> albumRepository, IRepositoryBase<Artist> artistRepository)
+        public AlbumService(IRepositoryBase<Album> albumRepository, IRepositoryBase<Artist> artistRepository, MusicPalaceDbContext dbContext)
         {
             _albumRepository = albumRepository;
             _artistRepository = artistRepository;
+            _dbContext = dbContext;
         }
 
         public PagenatedList<AlbumDto> ListAll()
@@ -50,7 +52,7 @@ namespace Spg.MusicPalace.Application.AlbumApp
                 Guid = s.Guid,
                 Title = s.Title,
                 Artistname = s.Artist.Name,                
-                SongAmount = s.SongAmount
+                SongAmount = s.Songs.Count
             });
 
             if (PagingExpression is not null)
@@ -80,7 +82,10 @@ namespace Spg.MusicPalace.Application.AlbumApp
 
         public AlbumDto Details(Guid guid)
         {
-            Album album = _albumRepository.GetSingle(s => s.Guid == guid)
+            //Album album = _albumRepository.GetSingle(s => s.Guid == guid)
+            //    ?? throw new KeyNotFoundException("Album could not be found!");
+
+            Album album = _dbContext.Albums.Include(a => a.Songs).Include(a => a.Artist).SingleOrDefault(s => s.Guid == guid)
                 ?? throw new KeyNotFoundException("Album could not be found!");
 
             List<string> songTitles = new List<string>();
@@ -94,9 +99,9 @@ namespace Spg.MusicPalace.Application.AlbumApp
             {
                 Title = album.Title,
                 Guid = album.Guid,
-                //Artistname = album.Artist.Name,
+                Artistname = album.Artist.Name,
                 SongTitles = songTitles,
-                SongAmount = album.SongAmount
+                SongAmount = album.Songs.Count
             };
 
             return dto;

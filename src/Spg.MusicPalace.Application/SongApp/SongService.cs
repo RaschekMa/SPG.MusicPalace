@@ -18,16 +18,18 @@ namespace Spg.MusicPalace.Application.SongApp
         private readonly IRepositoryBase<Song> _songRepository;
         private readonly IRepositoryBase<Artist> _artistRepository;
         private readonly IRepositoryBase<Album> _albumRepository;
+        private readonly IDateTimeService _dateTimeService;
 
         public List<Expression<Func<Song, bool>>> FilterExpressions { get; set; } = new();
         public Func<IQueryable<Song>, IOrderedQueryable<Song>>? SortOrderExpression { get; set; }
         public Func<IQueryable<SongDto>, PagenatedList<SongDto>> PagingExpression { get; set; }
 
-        public SongService(IRepositoryBase<Song> songRepository, IRepositoryBase<Artist> artistRepository, IRepositoryBase<Album> albumRepository)
+        public SongService(IRepositoryBase<Song> songRepository, IRepositoryBase<Artist> artistRepository, IRepositoryBase<Album> albumRepository, IDateTimeService dateTimeService)
         {
             _songRepository = songRepository;
             _artistRepository = artistRepository;
             _albumRepository = albumRepository;
+            _dateTimeService = dateTimeService;
         }
 
         public PagenatedList<SongDto> ListAll()
@@ -49,6 +51,7 @@ namespace Spg.MusicPalace.Application.SongApp
 
             IQueryable<SongDto> model = query.Select(s => new SongDto()
             {
+                Guid = s.Guid,
                 Title = s.Title,
                 ArtistName = s.Artist.Name,
                 AlbumName = s.Album.Title,
@@ -65,28 +68,29 @@ namespace Spg.MusicPalace.Application.SongApp
         public bool Create(NewSongDto dto)
         {
             Artist existingArtist = _artistRepository.GetSingle(s => s.Guid == dto.Artist, string.Empty)
-                ?? throw new SongServiceCreateException("Artist could not be found!");
-                
+                ?? throw new SongServiceCreateException("Artist could not be found!");                
 
             Album existingAlbum = _albumRepository.GetSingle(s => s.Guid == dto.Album, string.Empty)
-                ?? throw new SongServiceCreateException("Album could not be found!");   
-            
-            if(dto.Title.Length < 3)
-            {
-                throw new ServiceValidationException("Title must have at least 3 characters!");
-            }
+                ?? throw new SongServiceCreateException("Album could not be found!");
 
-            if (dto.Title.Length > 30)
+            if (dto.Created.DayOfWeek == DayOfWeek.Sunday)
             {
-                throw new ServiceValidationException("Title is too long!");
+                throw new ServiceValidationException("Song must not be created on a sunday!");
+            }
+            if (dto.Created > _dateTimeService.UtcNow)
+            {
+                throw new ServiceValidationException("Song must not be created in the future!");
+            }
+            if (dto.Created <= _dateTimeService.UtcNow.AddDays(-14))
+            {
+                throw new ServiceValidationException("Song must not be created more than 14 days in the past!");
             }
 
             Song newSong = new Song(Guid.NewGuid(), dto.Title, existingArtist, existingAlbum, dto.LiveVersion, dto.Single, dto.Created);
-
+            
             try
             {
                 _songRepository.Create(newSong);
-                //_albumRepository.Edit(existingAlbum).AddSong(newSong);
                 return true;
             }
             catch (RepositoryCreateException ex)
@@ -109,19 +113,19 @@ namespace Spg.MusicPalace.Application.SongApp
             return dto;
         }
 
-        public bool Delete(Song song)
+        public bool Delete(Guid guid)
         {
-            Song existingSong = _songRepository.GetSingle(s => s.Guid == song.Guid, string.Empty)
-                ?? throw new SongServiceCreateException("Song could not be found!");
+            Song existingSong = _songRepository.GetSingle(s => s.Guid == guid)
+                ?? throw new SongServiceDeleteException("Song could not be found!");
 
             try
             {
                 _songRepository.Delete(existingSong);
                 return true;
             }
-            catch (RepositoryCreateException ex)
+            catch (RepositoryDeleteException ex)
             {
-                throw new SongServiceCreateException("Method 'Delete()' failed!", ex);
+                throw new SongServiceDeleteException("Method 'Delete()' failed!", ex);
             }
         }
     }

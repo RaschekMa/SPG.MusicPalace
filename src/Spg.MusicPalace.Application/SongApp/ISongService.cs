@@ -17,7 +17,7 @@ namespace Spg.MusicPalace.Application.SongApp
 
         PagenatedList<SongDto> ListAll();
         bool Create(NewSongDto dto);
-        bool Delete(Song song);
+        bool Delete(Guid guid);
         SongDto Details(Guid guid);
     }
 }

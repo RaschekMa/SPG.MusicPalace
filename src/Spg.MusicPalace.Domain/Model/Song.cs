@@ -13,13 +13,13 @@ namespace Spg.MusicPalace.Domain.Model
 
         private List<UserPlaylist> _inPlaylist = new();
         public IReadOnlyList<UserPlaylist> InPlaylist => _inPlaylist;
+        public int ArtistId { get; set; }
         public Artist Artist { get; private set; }
+        public int AlbumId { get; set; }
         public Album Album { get; private set; }
         public bool LiveVersion { get; set; }
         public bool Single { get; set; }
         public DateTime Created { get; set; }
-
-        // Konstruktor mit allen Parametern
 
         protected Song() { }
 

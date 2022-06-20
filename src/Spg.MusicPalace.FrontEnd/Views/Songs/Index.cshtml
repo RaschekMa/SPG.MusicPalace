@@ -38,7 +38,9 @@
     <button type="submit">Go</button>
     </form>
 
-    <a asp-controller="Songs" asp-action="Create">Create</a>
+    <form method="get">
+        <button type="submit" asp-controller="Songs" asp-action="Create">Create</button>
+    </form>
 
 <table class="table table-striped">
     <thead>

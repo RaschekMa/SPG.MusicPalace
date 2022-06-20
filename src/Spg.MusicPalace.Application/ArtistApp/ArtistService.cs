@@ -21,7 +21,7 @@ namespace Spg.MusicPalace.Application.ArtistApp
         public Func<IQueryable<Artist>, IOrderedQueryable<Artist>>? SortOrderExpression { get; set; }
         public Func<IQueryable<ArtistDto>, PagenatedList<ArtistDto>> PagingExpression { get; set; }
 
-        public ArtistService(IRepositoryBase<Artist> artistRepository)
+        public ArtistService(IRepositoryBase<Artist> artistRepository, MusicPalaceDbContext dbContext)
         {
             _artistRepository = artistRepository;
         }
@@ -47,8 +47,7 @@ namespace Spg.MusicPalace.Application.ArtistApp
             {
                 Guid = s.Guid,
                 Name = s.Name,
-                AlbumAmount = s.AlbumAmount,
-                SongAmount = s.SongAmount
+                AlbumAmount = s.Albums.Count
             });
 
             if (PagingExpression is not null)

@@ -7,9 +7,30 @@
 <dl>
     <dt>Title:</dt>
     <dd>@Model.Title</dd>
+    <dt>Artist:</dt>
+    <dd>@Model.Artistname</dd>    
+</dl>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Songs</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(string item in @Model.SongTitles)
+        {
+            <tr>
+                <td>@item.ToString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<dl>    
     <dt>Guid:</dt>
-    <dd>@Model.Guid</dd>
-    <a asp-controller="Songs" asp-action="Delete" asp-route-id="@item.Guid">Delete</a>
+    <dd>@Model.Guid</dd>   
+    
+    <a asp-controller="Albums" asp-action="Index">Back</a>
 </dl>
 }
 else

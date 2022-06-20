@@ -9,6 +9,8 @@
     <dd>@Model.Title</dd>
     <dt>Guid:</dt>
     <dd>@Model.Guid</dd>
+    <a asp-controller="Songs" asp-action="Delete" asp-route-id="@Model.Guid">Delete</a>
+    <a asp-controller="Songs" asp-action="Index">Back</a>
 </dl>
 }
 else

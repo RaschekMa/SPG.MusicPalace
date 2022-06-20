@@ -9,11 +9,14 @@
     <select asp-for="Artist" asp-items="@ViewBag.artists">Artist</select>
     <br />    
     <label asp-for="Album">Album:</label>
-    <select asp-for="Album" asp-items="@ViewBag.albums"></select>
+    <select asp-for="Album" asp-items="@ViewBag.albums">Album</select>
     <br />    
     <label asp-for="Created">Created:</label>
-    <input asp-for="Created" type"date"/>
+    <input asp-for="Created" type="date"/>
     <hr />
 
     <button type="submit">Create</button>
+</form>
+<form method="get">    
+    <button type="submit" asp-controller="Songs" asp-action="Index">Back</button>
 </form>

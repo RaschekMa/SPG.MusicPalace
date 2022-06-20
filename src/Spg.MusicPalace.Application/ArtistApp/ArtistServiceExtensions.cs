@@ -41,10 +41,10 @@ namespace Spg.MusicPalace.Application.ArtistApp
             orderExpression = order switch
             {
                 "name_desc" => e => e.OrderByDescending(x => x.Name),
-                "songamount" => e => e.OrderBy(x => x.SongAmount),
-                "songamount_desc" => e => e.OrderByDescending(x => x.SongAmount),
-                "albumamount" => e => e.OrderBy(x => x.AlbumAmount),
-                "albumamount_desc" => e => e.OrderByDescending(x => x.AlbumAmount),
+                //"songamount" => e => e.OrderBy(x => x.Albums.Songs.Count),
+                //"songamount_desc" => e => e.OrderByDescending(x => x.Songs.Count),
+                "albumamount" => e => e.OrderBy(x => x.Albums.Count),
+                "albumamount_desc" => e => e.OrderByDescending(x => x.Albums.Count),
                 _ => e => e.OrderBy(x => x.Name),
             };
             service.SortOrderExpression = orderExpression;

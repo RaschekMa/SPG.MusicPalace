@@ -169,15 +169,15 @@ namespace SPG.MusicPalace.Repository
             }
             catch (InvalidOperationException ex)
             {
-                throw new RepositoryCreateException("Methode TEntity Create(TEntity) ist fehlgeschlagen!", ex);
+                throw new RepositoryDeleteException("Methode TEntity Delete(TEntity) ist fehlgeschlagen!", ex);
             }
             catch (DbUpdateConcurrencyException ex)
             {
-                throw new RepositoryCreateException("Methode TEntity Create(TEntity) ist fehlgeschlagen!", ex);
+                throw new RepositoryDeleteException("Methode TEntity Delete(TEntity) ist fehlgeschlagen!", ex);
             }
             catch (DbUpdateException ex)
             {
-                throw new RepositoryCreateException("Methode TEntity Create(TEntity) ist fehlgeschlagen!", ex);
+                throw new RepositoryDeleteException("Methode TEntity Delete(TEntity) ist fehlgeschlagen!", ex);
             }
             return newModel;
         }
