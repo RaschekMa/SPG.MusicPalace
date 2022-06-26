@@ -51,7 +51,16 @@
         {
             <tr>
                 <td>@item.Name</td>
-                <td>@item.AlbumAmount</td>
+                <td>
+                @if (item.AlbumAmount > 0)
+                        {
+                            <span>@item.AlbumAmount</span>
+                        }
+                        else
+                        {
+                            <span style="color: red">@item.AlbumAmount</span>
+                        }
+                </td>
             </tr>
         }
     </tbody>

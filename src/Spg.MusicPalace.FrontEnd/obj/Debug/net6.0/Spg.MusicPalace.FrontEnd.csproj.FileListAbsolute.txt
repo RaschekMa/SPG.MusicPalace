@@ -118,3 +118,4 @@ D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.FrontEnd\obj\Debug\net6.0\Spg.MusicPal
 D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.FrontEnd\obj\Debug\net6.0\refint\Spg.MusicPalace.FrontEnd.dll
 D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.FrontEnd\obj\Debug\net6.0\Spg.MusicPalace.FrontEnd.genruntimeconfig.cache
 D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.FrontEnd\obj\Debug\net6.0\ref\Spg.MusicPalace.FrontEnd.dll
+D:\VS\SPG.MusicPalace\src\Spg.MusicPalace.FrontEnd\bin\Debug\net6.0\MusicPalace.db

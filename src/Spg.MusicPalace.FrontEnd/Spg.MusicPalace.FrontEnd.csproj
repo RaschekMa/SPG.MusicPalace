@@ -11,4 +11,10 @@
     <ProjectReference Include="..\Spg.MusicPalace.Dtos\Spg.MusicPalace.Dtos.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="MusicPalace.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

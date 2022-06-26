@@ -94,11 +94,11 @@ namespace Spg.MusicPalace.FrontEnd.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(SongDto model)
+        public IActionResult Delete(Guid id, string filter)
         {
             try
             {
-                _songService.Delete(model.Guid);
+                _songService.Delete(id);
                 return RedirectToAction("Index", "Songs");
             }
             catch (SongServiceCreateException ex)
